@@ -1,0 +1,59 @@
+extends layout
+
+block pageTitle
+	title= title
+
+block content
+	.page-wrapper.bg-gra-03.p-t-45.p-b-50
+		.wrapper.wrapper--w790
+			.card.card-5
+				.card-heading
+					h2.title Add Product Form
+				.card-body
+					form(method='POST', action='/products/add')
+						.form-row
+							.name Product Name
+							.value
+								.input-group-desc
+									input.input--style-5(type='text', name='productname', placeholder='Enter Product Name')
+						.form-row
+							.name Price
+							.value
+								.input-group
+									input.input--style-5(type='number', name='Price', placeholder='Enter Product Price')
+						.form-row
+							.name Description
+							.value
+								.input-group
+									input.input--style-5(type='text-area', name='Description', placeholder='Enter Product Description')
+						.form-row.m-b-55
+							.name Image
+							.value
+								.input-group-desc
+									input.input--style-5(type='file', name='image')
+						.form-row.m-b-55
+							.name Production Date
+							.value
+								.input-group-desc
+									input.input--style-5(type='date', name='Production_Date')
+						.form-row.m-b-55
+							.name Expire Date
+							.value
+								.input-group-desc
+									input.input--style-5(type='date', name='Expire_Date')
+						.form-row.m-b-55
+							.name Country Made
+							.value
+								.input-group-desc
+									input.input--style-5(type='text', name='CountryMade', placeholder='Enter Product Country Made')
+						.form-row
+							.name Category
+							.value
+								.input-group
+									.rs-select2.js-select-simple.select--no-search
+										select(name='CategoryID')
+											option(disabled='disabled', selected='selected') Choose Category
+											option 1
+										.select-dropdown
+						div
+							button.btn.btn--radius-2.btn--red(type='submit') Add Product
