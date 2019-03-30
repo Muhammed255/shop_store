@@ -10,7 +10,7 @@ block content
 				.card-heading
 					h2.title Add Product Form
 				.card-body
-					form(method='POST', action='/products/add')
+					form(method='POST', action='/products/add', enctype='multipart/form-data')
 						.form-row
 							.name Product Name
 							.value
@@ -19,12 +19,12 @@ block content
 						.form-row
 							.name Price
 							.value
-								.input-group
+								.input-group-desc
 									input.input--style-5(type='number', name='Price', placeholder='Enter Product Price')
 						.form-row
 							.name Description
 							.value
-								.input-group
+								.input-group-desc
 									input.input--style-5(type='text-area', name='Description', placeholder='Enter Product Description')
 						.form-row.m-b-55
 							.name Image
@@ -49,11 +49,11 @@ block content
 						.form-row
 							.name Category
 							.value
-								.input-group
+								.input-group-desc
 									.rs-select2.js-select-simple.select--no-search
 										select(name='CategoryID')
 											option(disabled='disabled', selected='selected') Choose Category
 											option 1
 										.select-dropdown
 						div
-							button.btn.btn--radius-2.btn--red(type='submit') Add Product
+							button.btn.btn-primary(type='submit') Add Product

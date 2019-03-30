@@ -6,6 +6,10 @@ html
 		link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.css')
 		link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap-theme.min.css')
 		link(rel='stylesheet', href='/css/style.css')
+		link(rel='stylesheet', href='/css/jquery-ui.css')
+		link(rel='stylesheet', href='/css/jquery.selectBoxIt.css')
+		link(rel='stylesheet', href='/select2/select2.min.css')
+		link(rel='stylesheet', href='/datepicker/daterangepicker.css')
 	body
 		nav.navbar.navbar-inverse
 			.container
@@ -20,8 +24,53 @@ html
 					ul.nav.navbar-nav
 						li
 							a(href='/') Home
-						li
-							a(href='/products/add') Add Product
+						if user
+							li
+								a(href='/products/product_table') Products
+
+					ul.nav.navbar-nav.navbar-right
+						if user
+							li.dropdown
+								a.dropdown-toggle(href='#', data-toggle='dropdown')
+									span.glyphicon.glyphicon-user
+									strong Welcome #{user.Username}
+									span.glyphicon.glyphicon-chevron-down
+								ul.dropdown-menu
+									li
+										.navbar-user
+											.row
+												.col-lg-4
+													p.text-center
+														span.glyphicon.glyphicon-user.img-size
+												.col-lg-8
+													p.text-right
+														strong Welcome #{user.FirstName} #{user.LastName}
+													a.btn.btn-info.btn-block(href='/products/product_table')
+														i.glyphicon.glyphicon-check
+														| Published Products
+													a.btn.btn-warning.btn-block(href='/products/add')
+														i.glyphicon.glyphicon-plus
+														| Add New Product
+													a.btn.btn-info.btn-block(href='#')
+														i.glyphicon.glyphicon-saved
+														| Jobs you Applied
+													a.btn.btn-primary.btn-block(href='#')
+														i.glyphicon.glyphicon-edit
+														| Edit Profile
+									li.divider
+									li
+										div
+											.row
+												.col-lg-12
+													p
+														a.btn.btn-danger.btn-block(href="/users/logout")
+															i.glyphicon.glyphicon-log-out
+															| Logout
+						else
+							li
+								a(href='/users/register') Register
+							li
+								a(href='/users/login') Login
 		.container
 			!= messages('message', locals)
 			if errors
@@ -35,6 +84,8 @@ html
 		script(src='/bower_components/jquery/dist/jquery.js')
 		script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
 		script(src='/js/main.js')
-
-
-		
+		script(src='/select2/select2.min.js')
+		script(src='/datepicker/moment.min.js')
+		script(src='/datepicker/daterangepicker.js')
+		script(src='/js/jquery-ui.min.js')
+		script(src='/js/jquery.selectBoxIt.min.js')

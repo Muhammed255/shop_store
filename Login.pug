@@ -1,0 +1,20 @@
+extends layout
+
+block pageTitle
+	title Login
+
+block content
+	.page-wrapper.bg-gra-01.p-t-180.p-b-100.font-poppins
+		.wrapper.wrapper--w780
+			.card.card-3
+				.card-heading
+				.card-body
+					h2.title Login
+					form(method='POST', action='/users/login')
+						.input-group
+							input.input--style-3(type='text', placeholder='Username', name='username', autocomplete='off')
+						.input-group
+							input.input--style-3(type='password', placeholder='Password', name='password', autocomplete='off')
+
+						.p-t-10
+							button.btn.btn--pill.btn--green(type='submit') Login

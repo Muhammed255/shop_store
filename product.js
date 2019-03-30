@@ -10,7 +10,7 @@ let productSchema = mongoose.Schema({
 	Production_Date: {type: Date, required: true},
 	Expire_Date: {type: Date, required: true},
 	CategoryID: {type: Number, required: true},
-	AdminID: {type: Number},
+	AdminID: {type: String, ref: 'User'},
 	CountryMade: {type: String, required: true},
 });
 

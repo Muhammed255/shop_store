@@ -1,0 +1,105 @@
+extends layout
+
+block pageTitle
+	title #{title}
+
+block content
+	marquee(behavior='scroll')
+		h4 Welcome To Product Table
+	div
+		h1.text-center Products
+		table(class='table table-bordered table-responsive text-center', style='background-color: #FFF')
+			tr
+				th Product Name
+				th Price
+				th Description
+				th Image
+				th Production_Date
+				th Expire_Date
+				th Category
+				th CountryMade
+				th Control
+			each product, i in products
+				tr
+					td #{product.Name}
+					td #{product.Price}
+					td #{product.Description}
+					td #{product.Image}
+					td #{product.Production_Date}
+					td #{product.Expire_Date}
+					td #{product.CategoryID}
+					td #{product.CountryMade}
+					td
+						a.btn.btn-primary.btn-xs(data-toggle="modal" data-target="#EditProductModal")
+							i.glyphicon.glyphicon-pencil
+							|  Edit
+						a.btn.btn-danger.btn-xs.delete-product(href='#', data-id=product._id)
+							i.glyphicon.glyphicon-trash
+							|   Delete
+
+						// Modal
+						#EditProductModal.modal.fade(role='dialog')
+							.modal-dialog
+								// Modal content
+								.modal-content
+									.modal-header
+										button.close(type='button', data-dismiss='modal') ×
+										h4.modal-title Edit Product
+									.modal-body
+										.page-wrapper.bg-gra-03.p-t-45.p-b-50
+											.wrapper.wrapper--w790
+												.card.card-5
+													.card-heading
+														h2.title Update Product Form
+													.card-body
+														form(method='POST', action='/products/edit/'+product._id)
+															.form-row
+																.name Product Name
+																.value
+																	.input-group-desc
+																		input.input--style-5(type='text', name='productname', value=product.Name)
+															.form-row
+																.name Price
+																.value
+																	.input-group
+																		input.input--style-5(type='number', name='Price', value=product.Price)
+															.form-row
+																.name Description
+																.value
+																	.input-group
+																		input.input--style-5(type='text-area', name='Description', value=product.Description)
+															.form-row.m-b-55
+																.name Image
+																.value
+																	.input-group-desc
+																		input.input--style-5(type='file', name='image', value=product.Image)
+															.form-row.m-b-55
+																.name Production Date
+																.value
+																	.input-group-desc
+																		input.input--style-5(type='date', name='Production_Date', value=product.Production_Date)
+															.form-row.m-b-55
+																.name Expire Date
+																.value
+																	.input-group-desc
+																		input.input--style-5(type='date', name='Expire_Date', value=product.Expire_Date)
+															.form-row.m-b-55
+																.name Country Made
+																.value
+																	.input-group-desc
+																		input.input--style-5(type='text', name='CountryMade', value=product.CountryMade)
+															.form-row
+																.name Category
+																.value
+																	.input-group
+																		.rs-select2.js-select-simple.select--no-search
+																			select(name='CategoryID', value=product.CategoryID)
+																				option(disabled='disabled', selected='selected') Choose Category
+																				option 1
+																			.select-dropdown
+															div
+																input.btn.btn-success(type='submit', value='Update')
+									.modal-footer
+										button.btn.btn-info(type='button', data-dismiss='modal') Close
+
+		a.btn.btn-info(href='/products/add') Create New Product

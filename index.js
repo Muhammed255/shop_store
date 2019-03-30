@@ -5,9 +5,12 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const expressValidator = require('express-validator');
 const flash = require('connect-flash');
+const config = require('./config/database');
+const passport = require('passport');
+const fileUpload = require('express-fileupload');
 
 //Connect To DataBase
-mongoose.connect('mongodb://localhost/shop_store');
+mongoose.connect(config.database);
 let db = mongoose.connection;
 
 //Check For Successful Connection To DataBase
@@ -69,6 +72,19 @@ app.use(expressValidator({
 	}
 }));
 
+//Passport Config
+require('./config/passport')(passport);
+//Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+app.get('*', function(req, res, next){
+	res.locals.user = req.user || null;
+	next();
+})
+
+
 //Home Route
 app.get('/', function (req, res) {
 	Product.find({}, function(err, products){
@@ -76,17 +92,25 @@ app.get('/', function (req, res) {
 			console.log(err);
 		} else {
 			res.render('index', {
-				title: 'Products',
-				products: products
+				title: 'Dashboard',
 			});
 		}
 	});
 	
 });
 
+
+
+
+
+
 //Route Products Files
 let products = require('./routes/products');
 app.use('/products', products);
+
+//Route Users Files
+let users = require('./routes/users');
+app.use('/users', users);
 
 
 //Start Server Port
