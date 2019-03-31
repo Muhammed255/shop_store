@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Registration Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="js/bootstrap.min.js" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row centered-form">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h1 class="text-center">Registration Form</h1>
+                <label class="label col-md-5 control-label">UserName</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" name="username" placeholder="Enter your Username">
+                </div>
+                <label class="label col-md-5 control-label">Password</label>
+                <div class="col-md-9">
+                    <input type="password" class="form-control" name="password" placeholder="Enter your Password">
+                    <small>Password Must be more than 6 characters</small>
+                </div>
+                <label class="label col-md-5 control-label">Confirm Password</label>
+                <div class="col-md-9">
+                    <input type="password" class="form-control" name="password" placeholder="Confirm your Password">
+                    <small>Password Must be more than 6 characters</small>
+                </div>
+                <label class="label col-md-5 control-label">E-Mail</label>
+                <div class="col-md-9">
+                    <input type="email" class="form-control" name="e-mail" placeholder="Enter your E-Mail">
+                </div>
+                <label class="label col-md-5 control-label">Phone</label>
+                <div class="col-md-9">
+                    <select class="form-control phone1" name="phone">
+                        <option>010</option>
+                        <option>011</option>
+                        <option>012</option>
+                        <option>015</option>
+                    </select>
+                    <input type="number" class="form-control phone2" name="phone" placeholder="Enter your Phone">
+                </div>
+                <label class="label col-md-5 control-label">Address</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" name="address" placeholder="Enter your Address">
+                </div>
+                <a href="#">
+                    <div class="btn btn-info">Register</div>
+                </a>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

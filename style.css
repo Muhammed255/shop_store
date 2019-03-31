@@ -1,0 +1,62 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-image: url(back.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    font-family:'Times New Roman', Times, serif;
+}
+
+h1{
+    font-size: 150%;
+    color: white;
+    margin: 0%;
+    margin-bottom: 30px;
+    background: #333;
+    padding: 2%;
+    border-radius: 2%;
+}
+
+.label{
+    color: #333;
+    font-size: 19px;
+    margin-top: 20px;
+    font-weight: normal;
+}
+
+small{
+    font-size: 14px;
+}
+
+.phone1{
+    float: left;
+    width: 20%;
+}
+
+.phone2{
+    float: left;
+    width: 80%;
+}
+
+option{
+    color: #666;
+}
+
+.btn-info{
+    margin: 5%;
+    margin-left: 35%;
+    width: 30%;
+    font-size: 19px;
+    border-radius: 1000px;
+}
+
+.col-md-6{
+    margin: 2%;
+    padding: 0%;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: -1px 1px 60px 10px white inset;
+    border-radius: 2%;
+}
